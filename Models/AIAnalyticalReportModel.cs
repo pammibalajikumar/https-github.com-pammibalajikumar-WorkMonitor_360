@@ -15,7 +15,8 @@ namespace WorkMonitor_360.Models
         public decimal IdleTime{ get; set; }       
 
         public AIAnalyticalReportModel()
-        {            
+        {   
+            //
         }
     }
 }
