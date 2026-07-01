@@ -1,0 +1,82 @@
+﻿<Window x:Class="WorkMonitor_360.View.AIAnalyticalFilterReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkMonitor_360.View"
+        mc:Ignorable="d"
+        Title="AIAnalyticalReport" VerticalAlignment="Stretch" Height="800">
+
+    <Grid Height="674" VerticalAlignment="Top" Margin="0,0,29,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>-->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+
+        <TextBlock Text ="AI Analytical Report" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="4" TextAlignment="Center" Height="50" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontSize="20"/>
+
+        <TextBlock Text="Host Name" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,10,0" Height="16" Width="64" />
+        <ComboBox x:Name="hostName" Grid.Row="1" Grid.Column="1"  Height="30" Width="175" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding HostNames}" SelectedItem="{Binding SelectedHostName,Mode=TwoWay}" Margin="15,0,0,0"/>
+        <!--<TextBlock Text="User Name" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>-->
+
+        <TextBlock Text="User Name" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,10,0" Height="16" Width="62"/>
+        <!--<ComboBox x:Name="userName" Grid.Row="2" Grid.Column="1"  Height="30" Width="220" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding UserNames}" SelectedItem="{Binding SelectedUserNames}"/>-->
+
+
+        <!--<ComboBox x:Name="userName" Grid.Row="1" Grid.Column="3"  Height="30" Width="220" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding UserNames}" SelectedItem="{Binding SelectedUserNames}" Margin="15,0,0,0"/>-->
+
+        <ComboBox x:Name="userName" Grid.Row="1" Grid.Column="3"  Height="30" Width="220" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding UserNames}" SelectedItem="{Binding SelectedUserName}" Margin="15,0,0,0"/>
+
+
+
+
+        <TextBlock Text="From Date" Grid.Row="2" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Width="60" Margin="0,0,10,0"  />
+        
+        <!--<DatePicker x:Name="FromDate" Grid.Row="2" Grid.Column="1" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="175" />-->
+
+        <DatePicker x:Name="FromDate" Grid.Row="2" Grid.Column="1" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="175" SelectedDate="{Binding FromDate}" />
+
+
+
+
+        <TextBlock Text="To Date" Grid.Row="3" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Width="44"  Margin="0,0,10,0"  />
+        <DatePicker x:Name="ToDate" Grid.Row="3" Grid.Column="1" Margin="15,22,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" SelectedDate="{Binding ToDate}"/>
+
+        <!--<Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Content="Generate AI Report1" FontWeight="Bold" Width="130" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" />-->
+
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Content="Generate AI Report" FontWeight="Bold" Width="130" Height="44"  Margin="5,0,0,0" Click="BtnGenerateAIReport_Click"/>
+        <GroupBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Header=" AI Report" FontWeight="bold" Grid.RowSpan="2" Margin="2,2,2,2" >
+            <TextBlock Text="{Binding AISummary}"
+                   TextWrapping="Wrap"
+                   Margin="10"/>
+        </GroupBox>
+
+
+
+    </Grid>
+</Window>
